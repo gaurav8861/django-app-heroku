@@ -1,1 +1,1 @@
-web: gunicorn django-app-gaurav.wsgi --log-file -
+web: gunicorn django-app-gaurav.mysite.wsgi --log-file -
