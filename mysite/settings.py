@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django-app-gaurav.mysite.myapi.apps.MyapiConfig',
+    'myapi.apps.MyapiConfig',
     'rest_framework',
 ]
 
