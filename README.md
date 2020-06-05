@@ -1,5 +1,5 @@
 # django-app-heroku
-virtualenv django_env
+virtualenv django_env <br>
 source django_env/bin/activate
 pip install django
 django-admin.py startproject djangoherokuapp
