@@ -1,20 +1,20 @@
 # django-app-heroku
 virtualenv django_env <br>
-source django_env/bin/activate
-pip install django
-django-admin.py startproject djangoherokuapp
-cd djangoherokuapp
-python manage.py startapp herokuapp
-Add 'herokuapp' to installed apps in settings.py
-python manage.py migrate
-python manage.py runserver
+source django_env/bin/activate  <br>
+pip install django <br>
+django-admin.py startproject djangoherokuapp <br>
+cd djangoherokuapp <br>
+python manage.py startapp herokuapp <br>
+Add 'herokuapp' to installed apps in settings.py <br>
+python manage.py migrate <br>
+python manage.py runserver <br>
 
-heroku login
-touch Procfile > web: gunicorn djangoherokuapp.wsgi --log-file -
-Change djangoherokuapp to the name of your project to point to the location of the wsgi.py file
-runtime.txt > python-2.7.12
-pip install gunicorn dj-database-url whitenoise psycopg2
-pip freeze > requirements.txt
+heroku login <br>
+touch Procfile > web: gunicorn djangoherokuapp.wsgi --log-file - <br>
+Change djangoherokuapp to the name of your project to point to the location of the wsgi.py file <br>
+runtime.txt > python-2.7.12 <br>
+pip install gunicorn dj-database-url whitenoise psycopg2 <br>
+pip freeze > requirements.txt <br>
 
 dj-database-url==0.4.2
 Django==1.11.7
@@ -46,26 +46,26 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+] <br>
 
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+import dj_database_url  <br>
+prod_db  =  dj_database_url.config(conn_max_age=500) <br>
+DATABASES['default'].update(prod_db) <br>
 
-heroku create herokudjangoapp
-ALLOWED_HOSTS = ['herokudjangoapp.herokuapp.com']
-git init
-heroku git:remote -a herokudjangoapp
-git add .
-git commit -m "Initial commit"
-git push heroku master
+heroku create herokudjangoapp <br>
+ALLOWED_HOSTS = ['herokudjangoapp.herokuapp.com'] <br>
+git init <br>
+heroku git:remote -a herokudjangoapp <br>
+git add . <br>
+git commit -m "Initial commit" <br>
+git push heroku master <br>
 
-If you get an error message with collectstatic, simply disable it by instructing Heroku to ignore running the manage.py collecstatic command during the deployment process.
+If you get an error message with collectstatic, simply disable it by instructing Heroku to ignore running the manage.py <br> collecstatic command during the deployment process. <br>
 
-(django_env):~/Desktop/djangoherokuapp$ heroku config:set     DISABLE_COLLECTSTATIC=1  
-Setting DISABLE_COLLECTSTATIC and restarting ⬢ herokudjangoapp... done, v3  
-DISABLE_COLLECSTATIC: 1
+(django_env):~/Desktop/djangoherokuapp$ heroku config:set     DISABLE_COLLECTSTATIC=1   <br>
+Setting DISABLE_COLLECTSTATIC and restarting ⬢ herokudjangoapp... done, v3   <br>
+DISABLE_COLLECSTATIC: 1 <br>
 
-git push heroku master
+git push heroku master <br>
 
-heroku run python manage.py migrate
+heroku run python manage.py migrate <br>
