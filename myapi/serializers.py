@@ -12,7 +12,7 @@ class ActivityPeriodSerializer(serializers.HyperlinkedModelSerializer):
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 	activityperiods = ActivityPeriodSerializer(many=True, read_only=True)
-	id = serializers.CharField(source='uid')
+	# id = serializers.CharField(source='uid')
 
 	class Meta:
 		model = User

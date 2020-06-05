@@ -9,29 +9,29 @@ import random
   
 
 class User(models.Model):
-	# id = models.AutoField(primary_key=True)
-	uid = models.CharField(max_length=16, blank=True, editable=False, unique=True)
+	id = models.AutoField(primary_key=True)
+	# uid = models.CharField(max_length=16, blank=True, editable=False, unique=True)
 	real_name = models.CharField(max_length=60)
 	tz = models.CharField(max_length=60)
 
-	def save(self, *args, **kwargs):
-		res = ''.join(random.choices(string.ascii_uppercase +
-                             string.digits, k = 9))
-		if not self.uid:
-			self.uid = str(res)
-		success = False
-		failures = 0
-		while not success:
-			try:
-				super(User, self).save(*args, **kwargs)
-			except IntegrityError:
-				failures += 1
-				if failures > 5:
-					raise
-				else:
-					self.uid = str(res)
-			else:
-				success = True
+	# def save(self, *args, **kwargs):
+	# 	res = ''.join(random.choices(string.ascii_uppercase +
+ #                             string.digits, k = 9))
+	# 	if not self.uid:
+	# 		self.uid = str(res)
+	# 	success = False
+	# 	failures = 0
+	# 	while not success:
+	# 		try:
+	# 			super(User, self).save(*args, **kwargs)
+	# 		except IntegrityError:
+	# 			failures += 1
+	# 			if failures > 5:
+	# 				raise
+	# 			else:
+	# 				self.uid = str(res)
+	# 		else:
+	# 			success = True
 	# def save(self, *args, **kwargs):
 	# 	id = self.id
 	# 	if not id:
