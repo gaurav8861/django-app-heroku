@@ -69,3 +69,7 @@ DISABLE_COLLECSTATIC: 1 <br>
 git push heroku master <br>
 
 heroku run python manage.py migrate <br>
+
+
+#To load initial data 
+python3 manage.py loaddata mysite/fixtures/dummy_data.json
