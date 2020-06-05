@@ -28,10 +28,6 @@ from collections import namedtuple
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # def list(self, request, *args, **kwargs):
-    #     return JsonResponse({'foo':'bar'})
-    # def retrieve(self, request, *args, **kwargs):
-    #     return Response({'something': 'my custom JSON'})
 
 class ActivityPeriodViewSet(viewsets.ModelViewSet):
     queryset = ActivityPeriod.objects.all()
