@@ -1,11 +1,8 @@
 from django.db import models
 
-# Create your models here.
-# models.py
 from django.db import IntegrityError
 import string 
 import random 
-# from django.utils.crypto import get_random_string
   
 
 class User(models.Model):
